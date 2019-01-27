@@ -1,28 +1,19 @@
-<div style="background-color: grey !important" class="	container-fluid">
+<div style="background-color: white!important" class="	container-fluid">
  	<div class="row">
- 		<div class="col-sm-4">
- 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
- 			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
- 			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
- 			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
- 			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
- 			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+ 		<div style="border-right: 2px solid brown; font-size: 15px;" class="col-sm-6">
+ 			<p>+855 123 14445<br>
+ 			   12d, Khan Toul Kork, Phnom Penh<br>
+ 			   Make your life easier
+ 			</p>
  		</div>
- 		<div class="col-sm-4">
- 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
- 			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
- 			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
- 			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
- 			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
- 			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+ 		<div class="col-sm-6">
+ 			<p style="font-size: 15px;">Contact us at:</p>
+ 			<img style="width: 130px; height: 130px;" src="{{url('img/cake/facebook_circle-512.png')}}">
+ 			<img style="width: 130px; height: 130px; 
+ 			" src="{{url('img/cake/instagram-1675670_960_720.png')}}">
+ 			<img style="width: 130px; height: 130px;" src="{{url('img/cake/rs_600x600-130807142437-600.twitter2.cm.8713 (1).jpg')}}">
+ 			<img style="width: 130px; height: 130px;" src="{{url('img/cake/768px-LINE_logo.svg.png')}}">
  		</div>
- 		<div class="col-sm-4">
- 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
- 			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
- 			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
- 			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
- 			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
- 			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
- 		</div>
+ 		
  	</div>
  </div>

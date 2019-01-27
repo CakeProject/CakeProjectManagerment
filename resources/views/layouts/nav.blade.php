@@ -1,30 +1,52 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: grey !important">
-  <a class="navbar-brand" href="#"><i class="fas fa-birthday-cake"></i>E-Cake</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top" id="banner">
+  <div class="container">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#"><span>E-</span>Cake</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#"><i class="fas fa-home"></i>Home<span class="sr-only">(current)</span></a>
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="master/home">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><i class="fab fa-cuttlefish"></i>ustomize Cake</a>
+        <a class="nav-link" onclick="document.getElementById('id01').style.display='block'" href="#">Login</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/master/login"><i class="fas fa-sign-in-alt"></i>Login</a>
-      </li>
-      
+        <a class="nav-link" href="#">Register</a>
+      </li> 
       <li class="nav-item">
-        <a class="nav-link" href="/master/register"><i class="fas fa-registered"></i>egister</a>
+        <a class="nav-link" href="#">Customize</a>
       </li>
-      
+     <!-- Dropdown -->
+    
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-danger my-2 my-sm-0" type="submit">Search</button>
-
-    </form>
+  </div>
   </div>
 </nav>
+<div class="banner">
+  <div class="container">
+  <div class="banner-text">
+  <div class="banner-heading">
+  Glad to see you here !
+  </div>
+  <div class="banner-sub-heading">
+  Here goes the secondary heading on hero banner
+  </div>
+  <button style="width: 13%;" type="button" class="btn btn-warning text-dark btn-banner">Get started</button>
+  </div>
+  </div>
+</div>
+<section id="about">
+<div class="container">
+  <div class="text-intro">
+  <h2>About Us</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+  </div>
+</div>
+</section>

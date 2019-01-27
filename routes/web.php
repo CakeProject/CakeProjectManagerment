@@ -24,7 +24,7 @@ Route::resource('/product','ProductController');
 Route::get('/test/{id}','Test\TestController@routetesting');
 
 Route::get('master',function(){
-	return view('category.index');
+	return view('layouts.master');
 });
 Route::get('master/create',function()
 {
