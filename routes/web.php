@@ -23,21 +23,22 @@ Route::resource('/product','ProductController');
 
 Route::get('/test/{id}','Test\TestController@routetesting');
 
-Route::get('master',function(){
-	return view('layouts.master');
+Route::get('/master',function(){
+	return view('category.home');
 });
-Route::get('master/create',function()
+Route::get('master/seller',function()
 {
-	return view('category.create');
+	return view('category.seller');
 });
 Route::get('master/register',function()
 {
 	return view('category.register');
 });
-Route::get('master/login',function()
+Route::get('/log',function()
 {
 	return view('category.login');
 });
+
 Route::get('master/customize',function()
 {
 	return view('category.customize');
@@ -46,9 +47,14 @@ Route::get('master/home',function()
 {
 	return view('category.home');
 });
+Route::get('master/user',function()
+{
+	return view('category.user');
+});
+
 
 Auth::routes();
-
+Auth::user();
 
 
 
