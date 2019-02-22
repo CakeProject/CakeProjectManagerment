@@ -225,10 +225,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-<<<<<<< HEAD
         'Image' => Intervention\Image\Facades\Image::class
-=======
->>>>>>> 27cc4f0beaf52874ce4111f3927936f40a7989ba
 
     ],
 
