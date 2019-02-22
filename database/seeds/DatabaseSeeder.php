@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -11,6 +12,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+       // DB::table('cake')->insert([
+       //      'name' => str_random(10),
+       //      'email' => str_random(10).'durain@gmail.com',
+       //      'password' => bcrypt('1234'),
+    	 //$this->call(UsersTableSeeder::class);
+        // ]);
     }
 }
