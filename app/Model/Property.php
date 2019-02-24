@@ -6,23 +6,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class Property extends Model
 {
-    protected $fillable = ['shape','flavour','color','image','description'];
-    
-    public function flavour()
-    {
-        return $this->belongsToMany('App\Model\Flavour');
-    }
+    protected $fillable = ['cake_id','flavour_id','shape_id','color_id','image','description'];
+
     public function cake()
     {
-        return $this->belongsToMany('App\Model\Cake');
+        return $this->belongsTo('App\Model\Cake');
     }
-    public function store()
+    public function flavour()
     {
-        return $this->belongsToMany('App\Model\Store');
+        return $this->belongsTo('App\Model\Flavour');
     }
     public function shape()
     {
-        return $this->belongsToMany('App\Model\Shape');
+        return $this->belongsTo('App\Model\Shape');
+    }
+    public function color()
+    {
+        return $this->belongsTo('App\Model\Color');
     }
 
 }

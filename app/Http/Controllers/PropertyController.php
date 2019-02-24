@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\Property;
+
 use Image;
 
 class PropertyController extends Controller
@@ -15,10 +16,22 @@ class PropertyController extends Controller
      */
     public function index()
     {
-        $properties = Property::all()->toArray();
-        // dd($cakes);
-        return view('seller.list', compact('properties'));
 
+        $properties = \App\Model\Property::all();
+        // $cake =  \App\Model\Cake::first()->flavour()->getResults();
+        // $shape =  \App\Model\Shape::first()->shape()->getResults();
+        // $flavour =  \App\Model\Flavour::first()->flavour()->getResults();
+        // $color =  \App\Model\Color::first()->color()->getResults();
+        $data = [
+            'properties' => $properties,
+            // 'color' => $color,
+            // 'flavour' => $flavour,
+            // 'color' => $color,
+            // 'shape' => $shape
+        ];
+
+        //dd($cakes);   
+        return view('seller.list', $data);
     }
 
     /**
@@ -28,7 +41,18 @@ class PropertyController extends Controller
      */
     public function create()
     {
-        return view('seller.upload');
+        $cakes = \App\Model\Cake::all();
+        $flavors = \App\Model\Flavour::all();
+        $shaps = \App\Model\Shape::all();
+        $colors = \App\Model\Color::all();
+        $data = [
+            "cakes" => $cakes,
+            "flavors" => $flavors,
+            "shapes" => $shaps,
+            "colors" => $colors
+            
+        ];
+        return view('seller.upload', $data);
     }
 
     /**
@@ -39,19 +63,25 @@ class PropertyController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $this->validate($request,[
             'shape'    =>  'required',
-            'flavour'   =>  'required',
+            'flavour'   =>  '',
             'color' =>  'required',
             'image' => 'required',
-            'sizePrice' => 'required',
             'description' =>    'required']);
-        $properties = new Property([
-            'shape'    =>  $request->get('shape'),
-            'flavour'     =>  $request->get('flavour'),
-            'color'    =>  $request->get('color'),
-            'description'     =>  $request->get('description'),
 
+        $cake_id = \App\Model\Cake::where('name',$request->cake)->first()->id;
+        $fla_id = \App\Model\Flavour::where('flavour',$request->flavour)->first()->id;
+        $shape_id = \App\Model\Shape::where('shape',$request->shape)->first()->id;
+        $color_id = \App\Model\Color::where('color',$request->color)->first()->id;
+        // dd($fla_id);
+        $properties = new Property([
+            'description'     =>  $request->get('description'),
+            'cake_id' => $cake_id,
+            'flavour_id' => $fla_id,
+            'shape_id' => $shape_id,
+            'color_id' =>$color_id
         ]);
         if ($request->hasFile('image')){
             $cake_img = $request->file('image');
@@ -61,7 +91,8 @@ class PropertyController extends Controller
         }
         $properties->save();
         //return redirect()->route('seller.create');
-        return redirect()->route('seller.index')->with('success_created', 'new cake created');
+        // dd('ss');
+        return redirect()->route('cake.index'); 
     }
 //     public function getImageUrl(){
 //     return asset($this->cake_img);

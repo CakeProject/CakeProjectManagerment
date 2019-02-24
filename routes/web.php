@@ -15,11 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('seller','PropertyController');
+Route::resource('cake','PropertyController');
 Route::get('/cake/{session_name()e}/student/{age}',function($tname,$tage)
 {
 	return "Hello there: ".$tname.'-'.$tage;	
 });
+
+
 Route::resource('/product','ProductController');
 
 Route::get('/test/{id}','Test\TestController@routetesting');
@@ -31,36 +33,36 @@ Route::get('master/seller',function()
 {
 	return view('category.seller');
 });
-Route::get('master/register',function()
-{
-	return view('category.register');
-});
-Route::get('/log',function()
-{
-	return view('category.login');
-});
+// Route::get('master/register',function()
+// {
+// 	return view('category.register');
+// });
+// Route::get('/log',function()
+// {
+// 	return view('category.login');
+// });
 
-Route::get('master/customize',function()
-{
-	return view('category.customize');
-});
-Route::get('master/home',function()
-{
-	return view('category.home');
-});
-Route::get('master/user',function()
-{
-	return view('category.user');
-});
-
-
-Auth::routes();
-Auth::user();
+// Route::get('master/customize',function()
+// {
+// 	return view('category.customize');
+// });
+// Route::get('master/home',function()
+// {
+// 	return view('category.home');
+// });
+// Route::get('master/user',function()
+// {
+// 	return view('category.user');
+// });
 
 
+// Auth::routes();
+// Auth::user();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
+
+// Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');

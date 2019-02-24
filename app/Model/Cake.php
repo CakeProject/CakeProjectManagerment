@@ -11,6 +11,6 @@ class Cake extends Model
 	    ];
 	    public function property()
 	    {
-	        return $this->belongsToMany('App\Model\Property');
+	        return $this->hasMany('App\Model\Property');
 	    }
 }
