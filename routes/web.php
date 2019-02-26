@@ -52,6 +52,10 @@ Route::get('master/user',function()
 	return view('category.user');
 });
 
+////profile
+Route::get('/profile','profileController@profile');
+Route::post('/addProfile','profileController@addProfile');
+////
 
 Auth::routes();
 Auth::user();
