@@ -16,7 +16,12 @@ Route::get('/', function () {
 });
 Route::resource('list','CakeController');
 Route::resource('cake','PropertyController');
+Route::resource('create','PriceandSizeController');
 //Route::get('', 'HomeController@myActionName');
+Route::get('master/cart',function()
+{
+	return view('seller.listCard');
+});
 
 // Route::get('/cake/{session_name()e}/student/{age}',function($tname,$tage)
 // {

@@ -6,16 +6,16 @@
 
 <div class="container">
 
-	    <form enctype="multipart/form-data" method="post" action="{{url('list')}}"  class="col-md-6">
+	    <form enctype="multipart/form-data" method="post" action="{{route('list')}}"  class="col-md-6">
 			{{-- {{csrf_field()}}c  --}}
 			@csrf
         <h1 class="text-primary">Edit Cake</h1>
                 <div class="form-group">
         	        <label>Cake name : </label>
         		        <select name="cake" id="cake" class="form-control">
-        							@foreach ($cakes as $cake)
-        								<option value="{{$cake->name}}">{{$cake->name}}</option>		
-        							@endforeach
+							@foreach ($cakes as $cake)
+								<option @if($cake->id == $property->cake_id) {{!! selected !!}}  value="{{$cake->name}}">{{$cake->name}}</option>		
+							@endforeach
         		        </select>
         	    </div>
 
@@ -50,28 +50,26 @@
 	            
 	            <div class="form-group">
 	                <label >Picture :</label>
-	                <input type="file" name="image" class="form-control-file" id="image">
+	                <input type="file" name="image1" class="form-control-file" id="image">
 	            </div>
 
-	            <div class="form-group" >
-	              	<label>Size and Price:</label>
+	           <div class="form-group" >
+	              	<label>Size:</label>
 	    						<div>
-	    							<select id="sizePrice" name="sizePrice" multiple >
-	    								<optgroup label="Select price by each size"></optgroup>
-	    								<optgroup label="Size S">
-	    									<option value="size S: 5$">5$</option>
-	    									<option value="size S: 10">10$</option>
-	    									<option value="size S: 15">15$</option>
-	    								</optgroup>
-	    								<optgroup label="Size M">
-	    									<option value="size M: 10">10$</option>
-	    									<option value="size M: 15">15$</option>
-	    									<option value="size M: 20">20$</option>
-	    								</optgroup>
-	    							</select>
+	    							
+	    								@foreach ($sizes as $size)
+	    									<div class="row">
+	    										<div class="col-sm-6">{{$size->size}}: </div>
+	    										<div class="col-sm-6"><input type="number" name="price[{{$size->size}}]" class="form-control"></div>
+	    									</div>
+	    									
+	    											
+	    								@endforeach
+	    							
 	    						</div>
 	              	
 	            </div>
+	           
 
 	            <div class="form-group">
 	                <label >Description:</label>

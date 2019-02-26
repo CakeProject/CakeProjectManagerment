@@ -4,6 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\Property;
+use App\Model\Cake;
+use App\Model\Flavour;
+use App\Model\Shape;
+use App\Model\Color;
+use App\Model\PriceandSize;
+
 use Image;
 class CakeController extends Controller
 {
@@ -16,8 +22,10 @@ class CakeController extends Controller
     {
 
         $properties = \App\Model\Property::all();
+      
         $data = [
             'properties' => $properties,
+          
         ];
 
         return view('seller.list', $data);
@@ -30,10 +38,10 @@ class CakeController extends Controller
      */
     public function create()
     {
-        $cakes = \App\Model\Cake::all();
-        $flavors = \App\Model\Flavour::all();
-        $shaps = \App\Model\Shape::all();
-        $colors = \App\Model\Color::all();
+        $cakes = Cake::all();
+        $flavors = Flavour::all();
+        $shaps = Shape::all();
+        $colors = Color::all();
         $data = [
             "cakes" => $cakes,
             "flavors" => $flavors,
@@ -60,10 +68,10 @@ class CakeController extends Controller
             'image' => 'required',
             'description' =>    'required']);
 
-        $cake_id = \App\Model\Cake::where('name',$request->cake)->first()->id;
-        $fla_id = \App\Model\Flavour::where('flavour',$request->flavour)->first()->id;
-        $shape_id = \App\Model\Shape::where('shape',$request->shape)->first()->id;
-        $color_id = \App\Model\Color::where('color',$request->color)->first()->id;
+        $cake_id = Cake::where('name',$request->cake)->first()->id;
+        $fla_id = Flavour::where('flavour',$request->flavour)->first()->id;
+        $shape_id = Shape::where('shape',$request->shape)->first()->id;
+        $color_id = Color::where('color',$request->color)->first()->id;
         // dd($fla_id);
         $properties = new Property([
             'description'     =>  $request->get('description'),
@@ -91,7 +99,9 @@ class CakeController extends Controller
      */
     public function show($id)
     {
-        //
+        $cakes = Cake::all();
+        $cakes = Cake::findOrFailnd($id);
+        return view('/master/cart', compact('cakes'));
     }
 
     /**
@@ -102,25 +112,26 @@ class CakeController extends Controller
      */
     public function edit(request $id)
     {
-        $cakes = \App\Model\Cake::all();
-        $flavors = \App\Model\Flavour::all();
-        $shaps = \App\Model\Shape::all();
-        $colors = \App\Model\Color::all();
-   
+        $cakes = Cake::all();
+        $flavors = Flavour::all();
+        $shaps = Shape::all();
+        $colors = Color::all();
+        $prices = Property::all();
+        $sizes = PriceandSize::all();
 
         $data = [
             "cakes" => $cakes,
             "flavors" => $flavors,
             "shapes" => $shaps,
             "colors" => $colors,
-        
-            
+            "prices" => $prices,
+            "sizes" => $sizes
         ];
-        if ($id->hasFile('image')){
-            $cake_img = $id->file('image');
+        if ($id->hasFile('image1')){
+            $cake_img = $id->file('image1');
             $fileName = time().'.'.$cake_img->getClientOriginalExtension();
             Image::make($cake_img)->resize(150,150)->save(public_path('/storage/cake_img/'.$fileName));
-            $properties->image=$fileName;
+            $properties->image1=$fileName;
         }
         //$data->description = $id->description;
        //$data->image= $image;
@@ -150,7 +161,7 @@ class CakeController extends Controller
     public function destroy($id)
     {
        
-        $properties = \App\Model\Property::find($id);
+        $properties = Property::find($id);
         $properties->delete();
 
         return redirect('/cake')->with('success', 'Cake has been deleted Successfully');

@@ -13,4 +13,5 @@ class Cake extends Model
 	    {
 	        return $this->hasMany('App\Model\Property');
 	    }
+	    
 }

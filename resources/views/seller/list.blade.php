@@ -21,6 +21,7 @@
 		    <th>Flavour</th>
 		    <th>Shape</th>
 		    <th>Color</th>
+		    <th>Size_Price</th>
 		    <th>Cake Image</th>
 		    <th>Description</th>
 		    <th>Edit</th>
@@ -32,8 +33,8 @@
 			    <td>{{ $row->flavour()->getResults()->flavour }}</td>
 			    <td>{{ $row->shape()->getResults()->shape }}</td>
 			    <td>{{ $row->color()->getResults()->color }}</td> 
+			    <td>{{$row['price']}}</td>
 			    <td><img width="70px" height="50px" src="storage/cake_img/{{ $row['image'] }}" ></td>
-			
 			    <td>{{$row['description']}}</td>
 			    <td><a href="{{action('CakeController@edit', $row['id'])}}" class="btn btn-warning">Edit</a></td>
 			    <td>

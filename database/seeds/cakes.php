@@ -13,25 +13,24 @@ class cakes extends Seeder
     {
         DB::table('cakes')->insert([
         	'name' => "Spider Man"
-        ],
-    	[
-        	'name' => "Star"
-        ],
-        [
-        	'name' => "Rose"
-        ],
-        [
-        	'name' => "Hulk"
-        ],
-        [
-        	'name' => "Bare bear"
-        ],
-        [
-        	'name' => "Bird"
-        ],
-        [
-        	'name' => "Ball"
-        ]
-    	);
+        ]);
+         DB::table('cakes')->insert([
+            'name' => "Star"
+        ]);
+          DB::table('cakes')->insert([
+            'name' => "Rose"
+        ]);
+           DB::table('cakes')->insert([
+            'name' => "Hulk"
+        ]);
+            DB::table('cakes')->insert([
+            'name' => "Bare bear"
+        ]);
+             DB::table('cakes')->insert([
+            'name' => "Bird"
+        ]);
+              DB::table('cakes')->insert([
+            'name' => "Ball"
+        ]);
     }
 }

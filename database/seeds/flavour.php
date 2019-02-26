@@ -13,25 +13,25 @@ class flavour extends Seeder
     {
        DB::table('flavours')->insert([
         	'flavour' => "Coconut"
-        ],
-    	[
-        	'flavour' => "Pineapple"
-        ],
-        [
-        	'flavour' => "Chocolate"
-        ],
-        [
-        	'flavour' => "Caramel"
-        ],
-        [
-        	'flavour' => "Apple"
-        ],
-        [
-        	'flavour' => "Strawberry"
-        ],
-        [
-        	'flavour' => "Durian"
-        ]
-    	);
+        ]);
+       DB::table('flavours')->insert([
+            'flavour' => "Pineapple"
+        ]);
+       DB::table('flavours')->insert([
+            'flavour' => "Chocolate"
+        ]);
+       DB::table('flavours')->insert([
+            'flavour' => "Caramel"
+        ]);
+       DB::table('flavours')->insert([
+            'flavour' => "Apple"
+        ]);
+       DB::table('flavours')->insert([
+            'flavour' => "Strawberry"
+        ]);
+       DB::table('flavours')->insert([
+            'flavour' => "Durian"
+        ]);
+
     }
 }

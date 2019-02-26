@@ -19,12 +19,13 @@ class CreatePropertiesTable extends Migration
             $table->unsignedInteger('flavour_id');
             $table->unsignedInteger('shape_id');
             $table->unsignedInteger('color_id');
-            $table->unsignedInteger('sizePrice');
+            $table->float('price');
+
             $table->foreign('cake_id')->references('id')->on('cakes')->onDelete('cascade');
             $table->foreign('flavour_id')->references('id')->on('flavours')->onDelete('cascade');
             $table->foreign('shape_id')->references('id')->on('shapes')->onDelete('cascade');
             $table->foreign('color_id')->references('id')->on('colors')->onDelete('cascade');
-            $table->foreign('sizePrice')->references('id')->on('size_prices')->onDelete('cascade');
+
             
             $table->mediumText('image')->nullable();
             $table->string('description');

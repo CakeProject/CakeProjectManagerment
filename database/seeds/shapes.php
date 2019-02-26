@@ -13,25 +13,24 @@ class shapes extends Seeder
     {
         DB::table('shapes')->insert([
         	'shape' => "Cicle"
-        ],
-    	[
-        	'shape' => "Square"
-        ],
-        [
-        	'shape' => "Rectangle"
-        ],
-        [
-        	'shape' => "Triangle"
-        ],
-        [
-        	'shape' => "Hexagon"
-        ],
-        [
-        	'shape' => "Heart"
-        ],
-        [
-        	'shape' => "Topping"
-        ]
-    	);
+        ]);
+        DB::table('shapes')->insert([
+            'shape' => "Square"
+        ]);
+        DB::table('shapes')->insert([
+            'shape' => "Rectangle"
+        ]);
+        DB::table('shapes')->insert([
+            'shape' => "Triangle"
+        ]);
+        DB::table('shapes')->insert([
+            'shape' => "Hexagon"
+        ]);
+        DB::table('shapes')->insert([
+            'shape' => "Heart"
+        ]);
+        DB::table('shapes')->insert([
+            'shape' => "Topping"
+        ]);
     }
 }

@@ -13,25 +13,25 @@ class colors extends Seeder
     {
         DB::table('colors')->insert([
         	'color' => "Yellow"
-        ],
-    	[
-        	'color' => "Black"
-        ],
-        [
-        	'color' => "White"
-        ],
-        [
-        	'color' => "Green"
-        ],
-        [
-        	'color' => "Purple"
-        ],
-        [
-        	'color' => "Orage"
-        ],
-        [
-        	'color' => "Pink"
-        ]
-    	);
+        ]);
+        DB::table('colors')->insert([
+            'color' => "Black"
+        ]);
+        DB::table('colors')->insert([
+            'color' => "White"
+        ]);
+        DB::table('colors')->insert([
+            'color' => "Green"
+        ]);
+        DB::table('colors')->insert([
+            'color' => "Purple"
+        ]);
+        DB::table('colors')->insert([
+            'color' => "Orage"
+        ]);
+        DB::table('colors')->insert([
+            'color' => "Pink"
+        ]);
+
     }
 }

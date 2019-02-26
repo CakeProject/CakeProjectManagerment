@@ -11,13 +11,11 @@ class size_prices extends Seeder
      */
     public function run()
     {
-       DB::table('cakes')->insert([
+       DB::table('sizes')->insert([
         	'size' => "S"
-        	'price' => 5
-        ],
-    	[
+        ]);
+       DB::table('sizes')->insert([
         	'size' => "M"
-        	'price' =>10
         ]);
        
     }
