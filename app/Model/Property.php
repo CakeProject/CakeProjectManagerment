@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Property extends Model
 {
-    protected $fillable = ['cake_id','flavour_id','shape_id','color_id','image','description'];
+    protected $fillable = ['cake_id','flavour_id','shape_id','color_id','sizePrice_id','image','description'];
 
     public function cake()
     {
@@ -24,5 +24,10 @@ class Property extends Model
     {
         return $this->belongsTo('App\Model\Color');
     }
+     public function size_price()
+    {
+        return $this->belongsTo('App\Model\PriceandSize');
+    }
+
 
 }

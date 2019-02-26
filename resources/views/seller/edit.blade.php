@@ -5,26 +5,11 @@
 @section('content')
 
 <div class="container">
-	   	@if(count($errors) > 0)
-		<div class="alert alert-danger">
-			<ul>
-			 @foreach($errors->all() as $error)
-			  <li>{{$error}}</li>
-			 @endforeach
-			</ul>
-		</div>
-		@endif
 
-		@if(\Session::has('success_created'))
-		<div class="alert alert-success">
-			<p>{{ \Session::get('success_created') }}</p>
-		</div>
-		@endif
- 
-	    <form enctype="multipart/form-data" method="post" action="{{url('cake')}}"  class="col-md-6">
+	    <form enctype="multipart/form-data" method="post" action="{{url('list')}}"  class="col-md-6">
 			{{-- {{csrf_field()}}c  --}}
 			@csrf
-        <h1 class="text-primary">Upload Cake</h1>
+        <h1 class="text-primary">Edit Cake</h1>
                 <div class="form-group">
         	        <label>Cake name : </label>
         		        <select name="cake" id="cake" class="form-control">
@@ -92,8 +77,8 @@
 	                <label >Description:</label>
 	                <textarea class="form-control" id="description" name="description"></textarea>
 	            </div> 
-	    				<button type="submit" id="submit" name="submit_btn" class="btn btn-primary">Submit</button>
-	    				<a href="{{url('seller')}}" class="btn btn-danger">Cancel</a><br />
+	    			<button type="submit" id="submit" name="submit_btn" class="btn btn-primary">Submit</button>
+	    			<a href="{{url('cake')}}" class="btn btn-danger">Cancel</a><br />
 		</form>
 
 @endsection

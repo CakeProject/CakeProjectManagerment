@@ -4,10 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\Property;
-
 use Image;
-
-class PropertyController extends Controller
+class CakeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,19 +16,10 @@ class PropertyController extends Controller
     {
 
         $properties = \App\Model\Property::all();
-        // $cake =  \App\Model\Cake::first()->flavour()->getResults();
-        // $shape =  \App\Model\Shape::first()->shape()->getResults();
-        // $flavour =  \App\Model\Flavour::first()->flavour()->getResults();
-        // $color =  \App\Model\Color::first()->color()->getResults();
         $data = [
             'properties' => $properties,
-            // 'color' => $color,
-            // 'flavour' => $flavour,
-            // 'color' => $color,
-            // 'shape' => $shape
         ];
 
-        //dd($cakes);   
         return view('seller.list', $data);
     }
 
@@ -66,7 +55,7 @@ class PropertyController extends Controller
         // dd($request->all());
         $this->validate($request,[
             'shape'    =>  'required',
-            'flavour'   =>  '',
+            'flavour'   =>  'required',
             'color' =>  'required',
             'image' => 'required',
             'description' =>    'required']);
@@ -90,13 +79,8 @@ class PropertyController extends Controller
             $properties->image=$fileName;
         }
         $properties->save();
-        //return redirect()->route('seller.create');
-        // dd('ss');
         return redirect()->route('cake.index'); 
     }
-//     public function getImageUrl(){
-//     return asset($this->cake_img);
-// }
 
 
     /**
@@ -116,28 +100,33 @@ class PropertyController extends Controller
      * @param  int  $id  
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(request $id)
     {
+        $cakes = \App\Model\Cake::all();
+        $flavors = \App\Model\Flavour::all();
+        $shaps = \App\Model\Shape::all();
+        $colors = \App\Model\Color::all();
+   
 
-        // $cakes = \App\Model\Cake::all();
-        // $flavors = \App\Model\Flavour::all();
-        // $shaps = \App\Model\Shape::all();
-        // $colors = \App\Model\Color::all();
-        // $data = [
-        //     "cakes" => $cakes,
-        //     "flavors" => $flavors,
-        //     "shapes" => $shaps,
-        //     "colors" => $colors
+        $data = [
+            "cakes" => $cakes,
+            "flavors" => $flavors,
+            "shapes" => $shaps,
+            "colors" => $colors,
+        
             
-        // ];
-        // return view('seller.edit', $data); 
-        // $properties  = \App\Model\Property::all();
-        // $cakes  = \App\Model\Cake::all();
-        // $shapes = \App\Model\Shape::all();
-        // $flavors  = \App\Model\Flavour::all();
-        // $colors  = \App\Model\Color::all();
-
-        //    return view('seller.upload', compact($properties, $cakes, $shapes, $flavors, $colors));
+        ];
+        if ($id->hasFile('image')){
+            $cake_img = $id->file('image');
+            $fileName = time().'.'.$cake_img->getClientOriginalExtension();
+            Image::make($cake_img)->resize(150,150)->save(public_path('/storage/cake_img/'.$fileName));
+            $properties->image=$fileName;
+        }
+        //$data->description = $id->description;
+       //$data->image= $image;
+        //return view('cake.index', $data); 
+        //return redirect()->route('cake.index'); 
+        return view('seller.edit',$data);
     }
 
     /**
@@ -161,9 +150,9 @@ class PropertyController extends Controller
     public function destroy($id)
     {
        
-        // $properties = \App\Model\Property::find($id);
-        // $properties->delete();
+        $properties = \App\Model\Property::find($id);
+        $properties->delete();
 
-        // return redirect('/cake')->with('success', 'Cake has been deleted Successfully');
+        return redirect('/cake')->with('success', 'Cake has been deleted Successfully');
     }
 }

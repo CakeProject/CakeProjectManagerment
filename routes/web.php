@@ -14,25 +14,27 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::resource('list','CakeController');
 Route::resource('cake','PropertyController');
-Route::get('/cake/{session_name()e}/student/{age}',function($tname,$tage)
-{
-	return "Hello there: ".$tname.'-'.$tage;	
-});
+//Route::get('', 'HomeController@myActionName');
+
+// Route::get('/cake/{session_name()e}/student/{age}',function($tname,$tage)
+// {
+// 	return "Hello there: ".$tname.'-'.$tage;	
+// });
 
 
-Route::resource('/product','ProductController');
+// Route::resource('/product','ProductController');
 
-Route::get('/test/{id}','Test\TestController@routetesting');
+// Route::get('/test/{id}','Test\TestController@routetesting');
 
-Route::get('/master',function(){
-	return view('category.home');
-});
-Route::get('master/seller',function()
-{
-	return view('category.seller');
-});
+// Route::get('/master',function(){
+// 	return view('category.home');
+// });
+// Route::get('master/seller',function()
+// {
+// 	return view('category.seller');
+// });
 // Route::get('master/register',function()
 // {
 // 	return view('category.register');

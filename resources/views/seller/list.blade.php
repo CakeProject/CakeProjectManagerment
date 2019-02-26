@@ -35,13 +35,14 @@
 			    <td><img width="70px" height="50px" src="storage/cake_img/{{ $row['image'] }}" ></td>
 			
 			    <td>{{$row['description']}}</td>
-			    <td><a href="{{action('PropertyController@edit', $row['id'])}}" class="btn btn-warning">Edit</a></td>
+			    <td><a href="{{action('CakeController@edit', $row['id'])}}" class="btn btn-warning">Edit</a></td>
 			    <td>
-			    	<form method="post" class="delete_form" action="{{action('PropertyController@destroy', $row['id'])}}">
+			    	<form method="post" class="delete_form" action="{{action('CakeController@destroy', $row['id'])}}">
 			    	 {{csrf_field()}}
 			    	 <input type="hidden" name="_method" value="DELETE" />
 			    	 <button type="submit" class="btn btn-danger">Delete</button>
 			    	</form>
+			    </td>
 			   </tr>
 		   @endforeach
 		   <script>
